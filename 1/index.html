@@ -1,67 +1,71 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Sample Web Page</title>
-  <style>
-    /* CSS styles */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
+<head> <title>Sample Web Page</title>
+ <style> /* CSS styles */ 
+ body { font-family: Arial, sans-serif;
+     background-color: #f2f2f2;
       margin: 0;
-      padding: 0;
-    }
-    
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    h1 {
-      color: #333;
-      text-align: center;
-    }
-    
-    p {
-      color: #666;
-      line-height: 1.5;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Welcome to Sample Web Page</h1>
-    <p>This is a sample web page created using HTML, CSS, and JavaScript.</p>
-    <button onclick="showMessage()">Click Me</button>
-    <script>
-      // JavaScript code
-      function showMessage() {
-        alert("Hello, World!");
-
-        // More cool JavaScript code
-        const name = "GitHub Copilot";
-        const age = 2;
-        const isAwesome = true;
-
-        console.log(`My name is ${name}`);
-        console.log(`I am ${age} years old`);
-        console.log(`Am I awesome? ${isAwesome}`);
-
-        function multiply(a, b) {
-            return a * b;
+       padding: 0; }    
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        const result = multiply(5, 7);
-        console.log(`The result of multiplying 5 and 7 is ${result}`);
-      }
-
-      // New cool JavaScript code
-      function coolFunction() {
-        console.log("This is a cool function!");
-      }
-    </script>
-  </div>
-</body>
-</html>
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        
+        p {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* Add cool animation to button */
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        
+        button {
+            position: relative;
+            animation: shake 1s infinite;
+        }
+    </style>
+    </head>
+     <body>
+         <div class="container"> 
+            <h1>Welcome to Sample Web Page</h1>
+             <p>This is a sample web page created using HTML, CSS, and JavaScript.</p>
+              <button onclick="showMessage()">Click Me</button>
+               <script> // JavaScript code function showMessage() { alert("Hello, World!");
+    
+                // More cool JavaScript code
+                const name = "GitHub Copilot";
+                const age = 2;
+                const isAwesome = true;
+    
+                console.log(`My name is ${name}`);
+                console.log(`Am I awesome? ${isAwesome}`);
+                console.log(`I am ${age} years old`);
+    
+                function multiply(a, b) {
+                        return a * b;
+                }
+    
+                const result = multiply(5, 7);
+                console.log(`The result of multiplying 5 and 7 is ${result}`);
+            }
+    
+            // New cool JavaScript code
+            function coolFunction() {
+                console.log("This is a cool function!");
+            }
+        </script>
+    </div>
+    </body>
+     </html>
