@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "shodan": "^0.1.0"
+  }
+}
