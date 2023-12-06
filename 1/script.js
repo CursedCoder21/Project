@@ -41,16 +41,24 @@ button.addEventListener('click', async () => {
 // Function to determine exposure level based on Shodan data
 const determineExposureLevel = (data) => {
     try {
-        if (!data || !Array.isArray(data.ports)) {
+        if (!data || !Array.isArray(data.ports) || !Array.isArray(data.vulns)) {
             throw new Error('Invalid response format from Shodan API');
         }
 
         // Check if specific ports are open
-        if (data.ports.includes(22) || data.ports.includes(80)) {
-            return 'potentially-exposed';
-        }
+        const hasOpenPorts = data.ports.includes(22) || data.ports.includes(80);
 
-        return 'safe';
+        // Check if there are vulnerabilities
+        const hasVulnerabilities = data.vulns.length > 0;
+
+        // Determine exposure level
+        if (hasOpenPorts && hasVulnerabilities) {
+            return 'exposed';
+        } else if (hasOpenPorts || hasVulnerabilities) {
+            return 'potentially-exposed';
+        } else {
+            return 'safe';
+        }
     } catch (error) {
         console.error('Error in determineExposureLevel:', error);
         throw error; // Re-throw the error to be caught in the catch block
