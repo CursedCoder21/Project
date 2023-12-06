@@ -8,32 +8,59 @@ button.addEventListener('click', async () => {
     const device = input.value.trim();
 
     if (!device) {
-        return result.textContent = 'Please enter a valid IP or hostname.';
+        return (result.textContent = 'Please enter a valid IP or hostname.');
     }
 
     try {
-        const response = await fetch(`https://api.shodan.io/shodan/host/${device}?key=OUPG97k2XFD2NolXbvt70gtoPORVmacT`);
+        const response = await fetch(
+            `https://api.shodan.io/shodan/host/${device}?key=OUPG97k2XFD2NolXbvt70gtoPORVmacT`
+        );
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const data = await response.json();
 
-        if (data.error) {
-            return result.textContent = `Error: ${data.error}`;
-        }
+        // Log the response to the console for debugging
+        console.log('Shodan API Response Data:', data);
 
-        // Analyze data to determine exposure level (based on open ports, vulnerabilities, etc.)
-        let exposure = 'safe'; // Set default
-        if (data.open_ports.includes(22) || data.open_ports.includes(80)) {
-            exposure = 'potentially-exposed';
-        }
-        if (data.vulns.length > 0) {
-            exposure = 'exposed';
-        }
+        const exposure = determineExposureLevel(data);
 
         result.classList.remove('exposed', 'potentially-exposed', 'safe');
         result.classList.add(exposure);
-        result.textContent = `Your device is ${exposure}.`;
+
+        // Update the result text with a slight delay
+        updateResultText(`Your device is ${exposure}.`);
     } catch (error) {
-        console.error(error);
+        console.error('An unexpected error occurred:', error);
         result.textContent = 'An unexpected error occurred. Please try again.';
     }
 });
 
+// Function to determine exposure level based on Shodan data
+const determineExposureLevel = (data) => {
+    try {
+        if (!data || !Array.isArray(data.ports)) {
+            throw new Error('Invalid response format from Shodan API');
+        }
+
+        // Check if specific ports are open
+        if (data.ports.includes(22) || data.ports.includes(80)) {
+            return 'potentially-exposed';
+        }
+
+        return 'safe';
+    } catch (error) {
+        console.error('Error in determineExposureLevel:', error);
+        throw error; // Re-throw the error to be caught in the catch block
+    }
+};
+
+// Function to update the result text with a slight delay
+const updateResultText = (text) => {
+    // Introduce a delay before updating the text content
+    setTimeout(() => {
+        result.textContent = text;
+    }, 100);
+};
