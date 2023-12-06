@@ -22,7 +22,7 @@ const determineExposureLevel = async (device) => {
   showLoadingIndicator();
 
   // Fetch the Shodan API response
-  const response = await fetch(`https://api.shodan.io/shodan/host/${device}?key=YOUR_SHODAN_API_KEY`);
+  const response = await fetch(`https://api.shodan.io/shodan/host/${device}?key=OUPG97k2XFD2NolXbvt70gtoPORVmacT`);
   if (!response.ok) {
     hideLoadingIndicator();
     throw new Error(`HTTP error! Status: ${response.status}`);
