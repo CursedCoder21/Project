@@ -142,4 +142,4 @@ button.addEventListener('click', async () => {
         console.error('Error in button.addEventListener:', error);
         result.textContent = `Error checking device: ${error.message}`;
     }
-});
+}); 
