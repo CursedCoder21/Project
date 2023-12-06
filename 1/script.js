@@ -36,3 +36,4 @@ button.addEventListener('click', async () => {
         result.textContent = 'An unexpected error occurred. Please try again.';
     }
 });
+
