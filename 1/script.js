@@ -12,7 +12,7 @@ button.addEventListener('click', async () => {
     }
 
     try {
-        const response = await fetch(`https://api.shodan.io/v2/host/${device}?key=OUPG97k2XFD2NolXbvt70gtoPORVmacT`);
+        const response = await fetch(`https://api.shodan.io/shodan/host/${device}?key=OUPG97k2XFD2NolXbvt70gtoPORVmacT`);
         const data = await response.json();
 
         if (data.error) {
