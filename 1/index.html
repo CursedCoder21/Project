@@ -1,18 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Is My Device Exposed?</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shodan Device Exposure Checker</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .input-group {
+      margin-bottom: 10px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 200px;
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 5px 10px;
+      border: 1px solid #007bff;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+    }
+
+    .result {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .exposed {
+      background-color: #f91944;
+      color: white;
+    }
+
+    .potentially-exposed {
+      background-color: #ffc107;
+      color: black;
+    }
+
+    .safe {
+      background-color: #28a745;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-    <h1>Is My Device Exposed?</h1>
-    <p>Enter your IP address or hostname:</p>
-    <input type="text" id="device-input" placeholder="Enter IP or hostname">
-    <button id="check-button">Check Now!</button>
-    <div id="result"></div>
+  <div class="container">
+    <h1>Shodan Device Exposure Checker</h1>
 
-    <script src="script.js"></script>
+    <div class="input-group">
+      <label for="device-input">Device IP or Hostname:</label>
+      <input type="text" id="device-input" placeholder="Enter IP or hostname">
+    </div>
+
+    <button id="check-button">Check Exposure</button>
+
+    <div id="result" class="result"></div>
+
+    </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
