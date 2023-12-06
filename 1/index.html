@@ -3,78 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>   Device Security Checker</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 20px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .input-group {
-      margin-bottom: 10px;
-    }
-
-    .input-group label {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    input[type="text"] {
-      width: 200px;
-      padding: 5px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      padding: 5px 10px;
-      border: 1px solid #007bff;
-      cursor: pointer;
-      background-color: #007bff;
-      color: white;
-    }
-
-    .result {
-      margin-top: 20px;
-      border: 1px solid #ccc;
-      padding: 10px;
-    }
-
-    .exposed {
-      background-color: #f91944;
-      color: white;
-    }
-
-    .potentially-exposed {
-      background-color: #ffc107;
-      color: black;
-    }
-
-    .safe {
-      background-color: #28a745;
-      color: white;
-    }
-  </style>
+  <title>Device Security Checker</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <header>
     <h1>Device Security Checker</h1>
+  </header><br>
 
-    <div class="input-group">
+  <main class="container">
+    <section class="input-group">
       <label for="device-input">Device IP:</label>
-      <input type="text" id="device-input" placeholder="Enter IP or hostname">
-    </div>
+      <input type="text" id="device-input" placeholder="Enter IP Address">
+    </section>
 
     <button id="check-button">Check Exposure</button>
 
-    <div id="result" class="result"></div>
-
-    </div>
+    <section id="result" class="result"></section>
+  </main>
 
   <script src="script.js"></script>
 </body>
