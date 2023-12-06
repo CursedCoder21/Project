@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vulnerability Scanner</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Is My Device Exposed?</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Vulnerability Scanner</h1>
-    <div>
-        <label for="target">Enter a domain name or IP address:</label>
-        <input type="text" id="target" name="target">
-        <button id="scanBtn">Scan</button>
-    </div>
-    <div id="results"></div>
+    <h1>Is My Device Exposed?</h1>
+    <p>Enter your IP address or hostname:</p>
+    <input type="text" id="device-input" placeholder="Enter IP or hostname">
+    <button id="check-button">Check Now!</button>
+    <div id="result"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
